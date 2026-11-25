@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AB Media — brand films that build awareness and trust</title>
+<meta name="description" content="AB Media is a production studio led by Abror Bakhtiyarovich. Brand films and the story campaign around them. Start with a free business audit.">
+<meta name="theme-color" content="#0B0D0F">
+<link rel="icon" href="media/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@300;400;500;700&family=IBM+Plex+Sans+Arabic:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-in"><span class="rec"></span><span class="loader-name">AB MEDIA</span><span class="loader-bar"><i></i></span></div>
+</div>
+
+<canvas class="stage" id="stage" aria-hidden="true"></canvas>
+
+<div class="bar" id="bar" hidden><span id="bar-t"></span><b class="timer" id="timer" aria-hidden="true"></b></div>
+
+<header class="top" id="top">
+  <a class="brand" href="#hero" aria-label="AB Media"><span class="rec"></span><span>AB MEDIA</span></a>
+  <nav class="nav" id="nav" aria-label="Main"></nav>
+  <div class="top-r">
+    <div class="langs" id="langs" role="group"></div>
+    <a class="btn btn-acc btn-s" href="#request" id="top-cta"></a>
+  </div>
+</header>
+
+<nav class="rail" id="rail" aria-label="Sections"></nav>
+<div class="prog" aria-hidden="true"><i id="prog"></i></div>
+
+<main id="app"></main>
+
+<a class="float-cta btn btn-acc" href="#request" id="float-cta" hidden></a>
+
+<dialog class="player" id="player" aria-labelledby="pl-title">
+  <button class="pl-x" id="pl-x" type="button">×</button>
+  <video id="pl-video" controls playsinline preload="none"></video>
+  <div class="pl-info">
+    <p class="mono" id="pl-cat"></p>
+    <h3 id="pl-title"></h3>
+    <dl id="pl-dl"></dl>
+    <a class="btn btn-acc" href="#request" id="pl-cta"></a>
+  </div>
+</dialog>
+
+<noscript><p style="padding:120px 24px;color:#E9EDF2;font-family:sans-serif">AB Media — brand film production. Phone: +1 929 652 4542</p></noscript>
+
+<script src="static/data.js"></script>
+<script src="static/i18n.js"></script>
+<script src="static/i18n-v3.js"></script>
+<script src="static/particles.js"></script>
+<script src="static/app.js"></script>
+</body>
+</html>
