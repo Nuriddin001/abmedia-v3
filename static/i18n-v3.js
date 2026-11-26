@@ -3,7 +3,7 @@
 window.ABM_V3 = {
   en: {
     nav3: ["Work", "Process", "Formats", "FAQ"],
-    eb_hero: "Brand film production",
+    eb_hero: "Video production · brand films",
     badge: "Free 30-minute business audit",
     h_hero: "Why do 88 of 100 people *forget your ad?*",
     hero_sub: "We make brand films and run the story campaign around them. People first remember you, then trust you.",
@@ -42,7 +42,7 @@ window.ABM_V3 = {
   },
   es: {
     nav3: ["Trabajos", "Proceso", "Formatos", "FAQ"],
-    eb_hero: "Producción de brand films",
+    eb_hero: "Productora de vídeo · brand films",
     badge: "Auditoría de negocio gratis, 30 minutos",
     h_hero: "¿Por qué 88 de cada 100 personas *olvidan tu anuncio?*",
     hero_sub: "Hacemos brand films y llevamos la campaña de historia a su alrededor. Primero te recuerdan, luego confían en ti.",
@@ -81,7 +81,7 @@ window.ABM_V3 = {
   },
   ru: {
     nav3: ["Работы", "Процесс", "Форматы", "FAQ"],
-    eb_hero: "Продакшн бренд-фильмов",
+    eb_hero: "Видеопродакшн · бренд-фильмы",
     badge: "Бесплатный аудит бизнеса, 30 минут",
     h_hero: "Почему 88 из 100 человек *забывают вашу рекламу?*",
     hero_sub: "Мы снимаем бренд-фильмы и ведём сторителлинг-кампанию вокруг них. Сначала вас запоминают, потом вам доверяют.",
@@ -120,7 +120,7 @@ window.ABM_V3 = {
   },
   ar: {
     nav3: ["الأعمال", "آلية العمل", "الصيغ", "الأسئلة"],
-    eb_hero: "إنتاج أفلام العلامات التجارية",
+    eb_hero: "شركة إنتاج فيديو · أفلام العلامة التجارية",
     badge: "تدقيق أعمال مجاني، 30 دقيقة",
     h_hero: "لماذا ينسى 88 من كل 100 شخص *إعلانك؟*",
     hero_sub: "نصنع أفلام العلامة التجارية وندير حملة القصة حولها. يتذكّرك الناس أولًا، ثم يثقون بك.",

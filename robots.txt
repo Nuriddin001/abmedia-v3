@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nuriddin001.github.io/abmedia-v3/sitemap.xml

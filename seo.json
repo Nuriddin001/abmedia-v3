@@ -1,0 +1,260 @@
+{
+ "home": {
+  "en": {
+   "title": "AB Media — Storytelling Video Production & Brand Films",
+   "desc": "Storytelling video production company: brand films, commercials and go-to-market campaigns. Good Day, Sales Doctor Academy, IMZO. Free business audit."
+  },
+  "es": {
+   "title": "AB Media — Productora de vídeo corporativo y storytelling de marca",
+   "desc": "Productora de vídeo para empresas: spots publicitarios, vídeo corporativo y storytelling de marca. Good Day, Sales Doctor Academy, IMZO. Auditoría gratis."
+  },
+  "ru": {
+   "title": "AB Media — видеопродакшн для бизнеса: имиджевые и рекламные ролики",
+   "desc": "Видеопродакшн для бизнеса: имиджевые и рекламные ролики, сторителлинг и go-to-market кампании. Good Day, Sales Doctor Academy, IMZO. Бесплатный аудит бизнеса."
+  },
+  "ar": {
+   "title": "AB Media — شركة إنتاج فيديوهات وإعلانات تجارية بأسلوب سرد القصص",
+   "desc": "شركة إنتاج فيديوهات للشركات: تصوير إعلانات تجارية احترافية وفيديو تعريفي للشركة وسرد قصص العلامة التجارية مع حملات دخول السوق. تدقيق مجاني لعملك."
+  }
+ },
+ "work": {
+  "good-day": {
+   "en": {
+    "title": "Good Day Cappuccino — musical commercial by AB Media",
+    "desc": "Good Day Cappuccino musical ad by AB Media: bazaar traders, builders, pupils and office staff sing about a cappuccino that tastes fresh and costs less.",
+    "kind": "musical commercial",
+    "name": "Good Day Cappuccino — musical commercial",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT0M45S"
+   },
+   "es": {
+    "title": "Good Day Cappuccino — anuncio musical de AB Media",
+    "desc": "Anuncio musical de Good Day Cappuccino por AB Media: en el bazar, la obra y la oficina la gente canta al capuchino que sabe a recién hecho y cuesta menos.",
+    "kind": "anuncio musical",
+    "name": "Good Day Cappuccino — anuncio musical",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT0M45S"
+   },
+   "ru": {
+    "title": "Good Day Cappuccino — музыкальный рекламный ролик от AB Media",
+    "desc": "Музыкальный ролик Good Day Cappuccino от AB Media: на базаре, стройке и в офисе люди поют о капучино со вкусом свежего, который стоит дешевле.",
+    "kind": "музыкальный рекламный ролик",
+    "name": "Good Day Cappuccino — музыкальный рекламный ролик",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT0M45S"
+   },
+   "ar": {
+    "title": "Good Day Cappuccino — إعلان غنائي من AB Media",
+    "desc": "إعلان غنائي لـ Good Day Cappuccino من AB Media: في السوق وموقع البناء والمكتب يغني الناس لكابتشينو بطعم الطازج وبسعر أقل، فيلم من إنتاج كامل للاستوديو.",
+    "kind": "إعلان غنائي",
+    "name": "Good Day Cappuccino — إعلان غنائي",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT0M45S"
+   }
+  },
+  "grand-capital": {
+   "en": {
+    "title": "Grand Capital — explainer film by AB Media",
+    "desc": "Grand Capital explainer film: Sarvar and Komil can't find a home to their taste until a presentation of Grand Capital homes. Shoot supervised by AB Media.",
+    "kind": "explainer film",
+    "name": "Grand Capital — explainer film",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT1M24S"
+   },
+   "es": {
+    "title": "Grand Capital — vídeo explicativo de AB Media",
+    "desc": "Vídeo explicativo de Grand Capital: Sarvar y Komil no encuentran una casa a su gusto hasta ver las viviendas de Grand Capital. Supervisión de AB Media.",
+    "kind": "vídeo explicativo",
+    "name": "Grand Capital — vídeo explicativo",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT1M24S"
+   },
+   "ru": {
+    "title": "Grand Capital — объясняющий ролик от AB Media",
+    "desc": "Объясняющий ролик Grand Capital: Сарвар и Комил не могут найти дом по вкусу, пока не видят дома Grand Capital. Концепция, сценарий и надзор AB Media.",
+    "kind": "объясняющий ролик",
+    "name": "Grand Capital — объясняющий ролик",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT1M24S"
+   },
+   "ar": {
+    "title": "Grand Capital — فيلم تعريفي من AB Media",
+    "desc": "فيلم تعريفي لـ Grand Capital: سرور وكامل لا يجدان بيتًا يناسب ذوقهما حتى يشاهدا عرض بيوت Grand Capital. الفكرة والسيناريو والإشراف من AB Media.",
+    "kind": "فيلم تعريفي",
+    "name": "Grand Capital — فيلم تعريفي",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT1M24S"
+   }
+  },
+  "imzo": {
+   "en": {
+    "title": "IMZO — commercial by AB Media",
+    "desc": "IMZO door frames ad: frames came from Tashkent after days of waiting, now Imzo makes them in Samarkand and Fergana. Production supervised by AB Media.",
+    "kind": "commercial",
+    "name": "IMZO — commercial",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT1M11S"
+   },
+   "es": {
+    "title": "IMZO — anuncio de AB Media",
+    "desc": "Anuncio de marcos de puerta IMZO: antes llegaban de Taskent tras días de espera, ahora Imzo los fabrica en Samarcanda y Fergana. Supervisión de AB Media.",
+    "kind": "anuncio",
+    "name": "IMZO — anuncio",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT1M11S"
+   },
+   "ru": {
+    "title": "IMZO — рекламный ролик от AB Media",
+    "desc": "Ролик IMZO: дверные коробки раньше везли из Ташкента и ждали днями, теперь Imzo делает их в Самарканде и Фергане. Надзор за производством от AB Media.",
+    "kind": "рекламный ролик",
+    "name": "IMZO — рекламный ролик",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT1M11S"
+   },
+   "ar": {
+    "title": "IMZO — إعلان من AB Media",
+    "desc": "إعلان IMZO لإطارات الأبواب: كانت تُطلب من طشقند مع أيام من الانتظار، والآن تصنعها Imzo في سمرقند وفرغانة. إشراف AB Media على التصوير والمونتاج.",
+    "kind": "إعلان",
+    "name": "IMZO — إعلان",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT1M11S"
+   }
+  },
+  "sales-doctor": {
+   "en": {
+    "title": "Sales Doctor Academy — brand film by AB Media",
+    "desc": "Sales Doctor Academy brand film by AB Media: however bad things get for a business, it can be saved. Concept, script, shoot, edit and a backstage film.",
+    "kind": "brand film",
+    "name": "Sales Doctor Academy — brand film",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT1M50S"
+   },
+   "es": {
+    "title": "Sales Doctor Academy — película de marca de AB Media",
+    "desc": "Película de marca de Sales Doctor Academy por AB Media: por mal que vaya un negocio, se puede salvar. Concepto, guion, rodaje, montaje y vídeo del rodaje.",
+    "kind": "película de marca",
+    "name": "Sales Doctor Academy — película de marca",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT1M50S"
+   },
+   "ru": {
+    "title": "Sales Doctor Academy — имиджевый фильм от AB Media",
+    "desc": "Имиджевый фильм Sales Doctor Academy от AB Media: как бы тяжело ни было бизнесу, его можно спасти. Концепция, сценарий, съёмка, монтаж и бэкстейдж.",
+    "kind": "имиджевый фильм",
+    "name": "Sales Doctor Academy — имиджевый фильм",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT1M50S"
+   },
+   "ar": {
+    "title": "Sales Doctor Academy — فيلم للعلامة التجارية من AB Media",
+    "desc": "فيلم Sales Doctor Academy من AB Media: مهما ساءت حال الشركة يمكن إنقاذها. الفكرة والسيناريو والتصوير والمونتاج، مع فيلم كامل من كواليس التصوير.",
+    "kind": "فيلم للعلامة التجارية",
+    "name": "Sales Doctor Academy — فيلم للعلامة التجارية",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT1M50S"
+   }
+  },
+  "toxtaniyoz": {
+   "en": {
+    "title": "To'xtaniyoz Ota — commercial by AB Media",
+    "desc": "To'xtaniyoz Ota sausage ad by AB Media: a granddaughter loves her grandfather's sausages, and his son brings the family recipe to the factory floor.",
+    "kind": "commercial",
+    "name": "To'xtaniyoz Ota — commercial",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT0M34S"
+   },
+   "es": {
+    "title": "To'xtaniyoz Ota — anuncio de AB Media",
+    "desc": "Anuncio de salchichas To'xtaniyoz Ota por AB Media: a la nieta le encantan las salchichas del abuelo, y su hijo lleva la receta familiar a la fábrica.",
+    "kind": "anuncio",
+    "name": "To'xtaniyoz Ota — anuncio",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT0M34S"
+   },
+   "ru": {
+    "title": "To'xtaniyoz Ota — рекламный ролик от AB Media",
+    "desc": "Ролик сосисок To'xtaniyoz Ota от AB Media: внучке нравятся сосиски дедушки, он открывает секрет вкуса, и сын готовит их по этому рецепту на фабрике.",
+    "kind": "рекламный ролик",
+    "name": "To'xtaniyoz Ota — рекламный ролик",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT0M34S"
+   },
+   "ar": {
+    "title": "To'xtaniyoz Ota — إعلان من AB Media",
+    "desc": "إعلان نقانق To'xtaniyoz Ota من AB Media: الحفيدة تحب نقانق جدها، فيكشف سر نكهتها، ويبدأ ابنه بصنعها في المصنع على الوصفة نفسها. شاهد الفيلم كاملًا.",
+    "kind": "إعلان",
+    "name": "To'xtaniyoz Ota — إعلان",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT0M34S"
+   }
+  },
+  "yuksalish": {
+   "en": {
+    "title": "Yuksalish Choy — launch commercial by AB Media",
+    "desc": "Yuksalish Choy launch ad by AB Media: part of the revenue from this new tea pays for students in need, so every cup sponsors a young person's education.",
+    "kind": "launch commercial",
+    "name": "Yuksalish Choy — launch commercial",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT0M33S"
+   },
+   "es": {
+    "title": "Yuksalish Choy — anuncio de lanzamiento de AB Media",
+    "desc": "Anuncio de lanzamiento de Yuksalish Choy por AB Media: parte de lo que se gana con este nuevo té paga los estudios de jóvenes que lo necesitan. Ver vídeo.",
+    "kind": "anuncio de lanzamiento",
+    "name": "Yuksalish Choy — anuncio de lanzamiento",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT0M33S"
+   },
+   "ru": {
+    "title": "Yuksalish Choy — ролик для запуска бренда от AB Media",
+    "desc": "Ролик запуска Yuksalish Choy от AB Media: часть выручки от нового чая идёт студентам, которым нужна помощь, и каждая чашка спонсирует чью-то учёбу.",
+    "kind": "ролик для запуска бренда",
+    "name": "Yuksalish Choy — ролик для запуска бренда",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT0M33S"
+   },
+   "ar": {
+    "title": "Yuksalish Choy — إعلان إطلاق من AB Media",
+    "desc": "إعلان إطلاق شاي Yuksalish Choy من AB Media: جزء من عائدات هذا الشاي الجديد يذهب لطلاب محتاجين، فكل كوب يساهم في تعليم شاب. الفكرة والتصوير والمونتاج.",
+    "kind": "إعلان إطلاق",
+    "name": "Yuksalish Choy — إعلان إطلاق",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT0M33S"
+   }
+  },
+  "zor-tv": {
+   "en": {
+    "title": "ZO'R TV — public-service film by AB Media",
+    "desc": "ZO'R TV public-service film by AB Media on saving power: a schoolboy tries to light bulbs by blowing through the pipe his mother uses for the stove.",
+    "kind": "public-service film",
+    "name": "ZO'R TV — public-service film",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT2M5S"
+   },
+   "es": {
+    "title": "ZO'R TV — spot social de AB Media",
+    "desc": "Spot social de ZO'R TV por AB Media sobre ahorrar luz: un escolar intenta encender las bombillas soplando por el tubo que su madre usa en la estufa.",
+    "kind": "spot social",
+    "name": "ZO'R TV — spot social",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT2M5S"
+   },
+   "ru": {
+    "title": "ZO'R TV — социальный ролик от AB Media",
+    "desc": "Социальный ролик ZO'R TV от AB Media об экономии электричества: школьник пытается зажечь лампочки, дуя в трубку, которой мама раздувает огонь в печи.",
+    "kind": "социальный ролик",
+    "name": "ZO'R TV — социальный ролик",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT2M5S"
+   },
+   "ar": {
+    "title": "ZO'R TV — فيلم توعوي من AB Media",
+    "desc": "فيلم توعوي لقناة ZO'R TV من AB Media عن توفير الكهرباء: تلميذ يحاول إضاءة المصابيح بالنفخ في الأنبوب الذي تستعمله أمه لإشعال نار الموقد. شاهد الفيلم.",
+    "kind": "فيلم توعوي",
+    "name": "ZO'R TV — فيلم توعوي",
+    "upload": "2026-11-16T00:00:00+05:00",
+    "duration": "PT2M5S"
+   }
+  }
+ }
+}

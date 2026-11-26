@@ -1,0 +1,15 @@
+{
+ "name": "AB Media",
+ "short_name": "AB Media",
+ "start_url": "/abmedia-v3/",
+ "display": "browser",
+ "background_color": "#0B0D0F",
+ "theme_color": "#0B0D0F",
+ "icons": [
+  {
+   "src": "/abmedia-v3/media/logo.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ]
+}

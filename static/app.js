@@ -1,11 +1,9 @@
-/* AB Media v3: page structure (offer bar, hero with two CTAs, difference, calculator, problems,
-   fixes, process, work, why, formats, request form, FAQ, contacts) and its behaviour. */
+/* AB Media v3: behaviour of the page. The markup comes from page.js; build.js has already written it
+   into the HTML, so this file only fills it in when the page is opened without that step. */
 (function () {
 "use strict";
-const I = window.ABM_I18N, V = window.ABM_V3, D = window.ABM_DATA;
+const I = window.ABM_I18N, D = window.ABM_DATA, P = window.ABM_PAGE, esc = P.esc, CASE = P.CASE;
 const $ = (s, r) => (r || document).querySelector(s), $$ = (s, r) => [...(r || document).querySelectorAll(s)];
-const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const mark = s => esc(s).replace(/\*(.+?)\*/g, "<b>$1</b>");
 const store = {
   get(k, s) { try { return (s ? sessionStorage : localStorage).getItem(k); } catch (e) { return null; } },
   set(k, v, s) { try { (s ? sessionStorage : localStorage).setItem(k, v); } catch (e) {} }
@@ -13,144 +11,23 @@ const store = {
 const QS = new URLSearchParams(location.search);
 const PREVIEW = QS.has("preview");          /* ?preview: the form sends nothing */
 const small = () => innerWidth < 900;
-const CASE = {}; I.CASES.forEach(c => CASE[c.client] = c);
-
-let lang = [QS.get("lang"), store.get("abm-lang"), (navigator.language || "en").slice(0, 2).toLowerCase(), "en"].find(x => I.LANGS.includes(x));
+const html = document.documentElement;
+/* every language has its own address (/, /es/, /ru/, /ar/); the page says which one it is */
+const lang = I.LANGS.includes(html.lang) ? html.lang : "en", ROOT = html.dataset.root || "";
 let t = null, reach = D.cjm.reach_default, calc = null, fmt = "", particles = null;
 const num = n => Math.round(n).toLocaleString(lang === "ar" ? "en-US" : lang);
-const arrow = () => `<i class="ar" aria-hidden="true">${lang === "ar" ? "←" : "→"}</i>`;
-const pic = (name, alt, cls) => `<picture${cls ? ` class="${cls}"` : ""}><source type="image/avif" srcset="media/${name}.avif"><source type="image/webp" srcset="media/${name}.webp"><img src="media/${name}.jpg" alt="${esc(alt)}" loading="lazy" decoding="async"></picture>`;
-
-/* ---------- sections ---------- */
-let count = 0;
-function sec(id, shape, side, eb, h, body, wide, tag) {
-  count++; tag = tag || "h2";
-  return `<section class="s s-${id}" id="${id}" data-shape="${shape}" data-side="${side}" data-eb="${esc(eb)}">
-<div class="wrap"><div class="head"><div class="head-t">
-<p class="eb rv"><span>${String(count).padStart(2, "0")}</span><i></i><span>${esc(eb)}</span></p>
-<${tag} class="h rv">${mark(h)}</${tag}>${body || ""}</div></div>${wide ? `<div class="wide">${wide}</div>` : ""}</div></section>`;
-}
-const cta = (cls) => `<a class="btn btn-acc ${cls || ""}" href="#request">${esc(t.cta)} ${arrow()}</a>`;
-const list = (items, cls) => `<ul class="${cls}">${items.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
-
-function page() {
-  count = 0;
-  const f = CASE[D.featured], c = D.contacts;
-  const hero = sec("hero", "logo", "right", t.eb_hero, t.h_hero, `
-<p class="lead rv">${esc(t.hero_sub)}</p>
-<div class="cta-row rv">${cta()}<a class="btn btn-line" href="#work">${esc(t.cta2)}</a></div>
-<p class="badge rv"><span class="rec"></span>${esc(t.badge)}</p>
-<button class="chip rv" type="button" data-play="${esc(f.client)}"><span class="chip-p" aria-hidden="true">▶</span><span><small>${esc(t.now)}</small>${esc(f.client)} · ${f.dur}</span></button>
-<dl class="stats rv">${t.stats.map(s => `<div><dt>${esc(s[1])}</dt><dd>${esc(s[0])}</dd></div>`).join("")}</dl>`, "", "h1");
-
-  const diff = sec("diff", "chart", "left", t.d_eb, t.h_diff, `<p class="lead rv">${esc(t.diff_p)}</p>`, `
-<div class="cmp">
-<article class="card rv"><p class="mono tag">${esc(t.ad_tag)}</p><h3>${esc(t.d_ad)}</h3>${list(t.ad_pts, "ul-x")}</article>
-<article class="card card-acc rv"><p class="mono tag acc">${esc(t.film_tag)}</p><h3>${esc(t.d_film)}</h3>${list(t.film_pts, "ul-v")}</article>
-</div>`);
-
-  const calcS = sec("calc", "funnel", "right", t.calc_h, t.h_calc, `
-<p class="lead rv">${esc(t.calc_p)}</p>
-<div class="calc rv">
-<div class="calc-top"><label class="mono" for="reach">${esc(t.c_reach)}</label><output id="reach-o" for="reach"></output></div>
-<input type="range" id="reach" min="${D.cjm.reach_min}" max="${D.cjm.reach_max}" step="10000" value="${reach}">
-<div class="calc-t">
-<div class="calc-r calc-hd mono"><span></span><span>${esc(t.j_modes[0])}</span><span class="acc">${esc(t.j_modes[1])}</span></div>
-${[1, 2, 3].map(i => `<div class="calc-r"><span class="mono">${esc(t.j_stages[i])}</span><span id="n${i}"></span><span class="acc" id="f${i}"></span></div>`).join("")}
-</div>
-<p class="sum" id="sum"></p>
-<p class="note">${esc(t.j_note)}</p>
-<a class="btn btn-acc" href="#request" id="calc-cta">${esc(t.c_cta)} ${arrow()}</a>
-</div>`);
-
-  const prob = sec("problems", "cross", "left", t.pr_eb, t.h_prob, "", `
-<div class="grid3">${t.fixes.map(x => `<article class="card pain rv"><span class="pain-x" aria-hidden="true">×</span><h3>${esc(x[0])}</h3></article>`).join("")}</div>`);
-
-  const fix = sec("fix", "check", "right", t.f_eb, t.h_fix, "", `
-<div class="fx-t">
-<div class="fx fx-hd mono"><span></span><span>${esc(t.others)}</span><span class="acc">${esc(t.j_ours)}</span></div>
-${t.fixes.map((x, i) => `<div class="fx rv"><span class="mono">${String(i + 1).padStart(2, "0")}</span><s>${esc(x[0])}</s><b>${esc(x[1])}</b></div>`).join("")}
-</div>
-<div class="cta-row rv">${cta()}</div>`);
-
-  const how = sec("how", "clapper", "left", t.how_eb, t.h_how, `
-<ol class="rows">${t.steps.map((x, i) => `<li class="rv"><span class="mono">${String(i + 1).padStart(2, "0")}</span><div><b>${esc(x[0])}</b><small>${esc(x[1])}</small></div></li>`).join("")}</ol>
-<div class="cta-row rv">${cta()}</div>`);
-
-  const names = D.order.map(n => `<span>${esc(n)}</span>`).join("");
-  const work = sec("work", "play", "right", t.cs_eb, t.h_work, "", `
-<p class="mono tr-eb rv">${esc(t.tr_eb)}</p>
-<div class="marq rv" aria-hidden="true"><div>${names}${names}</div></div>
-<div class="films">${D.order.map(n => { const k = CASE[n]; return `<button class="film rv" type="button" data-play="${esc(n)}">${pic(k.video, t.alt_still.replace("{c}", n))}<span class="film-p" aria-hidden="true">▶</span><span class="film-m"><b>${esc(n)}</b><small class="mono">${esc(t.cat[n])} · ${k.dur}</small></span></button>`; }).join("")}</div>
-<div class="cta-row rv">${cta()}</div>`);
-
-  const why = sec("why", "camera", "left", t.why_eb, t.h_why, `
-<figure class="person rv">${pic("portrait", t.alt_p)}<figcaption><b>${esc(t.name)}</b><small>${esc(t.role)}</small></figcaption></figure>
-<ul class="rows rows-s">${t.why.map((x, i) => `<li class="rv"><span class="mono">${String(i + 1).padStart(2, "0")}</span><div><b>${esc(x)}</b></div></li>`).join("")}</ul>`);
-
-  const formats = sec("formats", "strip", "right", t.fmt_eb, t.h_fmt, "", `
-<div class="grid3 fmts">${t.fm.map((x, i) => `<article class="card fmt rv${i === 2 ? " card-acc" : ""}">
-${i === 2 ? `<p class="mono tag acc">${esc(t.fmt_tag)}</p>` : `<p class="mono tag">${String(i + 1).padStart(2, "0")}</p>`}
-<h3>${esc(x[0])}</h3><p class="fmt-d">${esc(t.fmt_d[i])}</p>
-${list(D.formats[i].map(k => t.sc[k]), "ul-v")}
-<p class="mono fmt-price">${esc(t.fmt_price)}</p>
-<a class="btn ${i === 2 ? "btn-acc" : "btn-line"}" href="#request" data-format="${i}">${esc(t.pick)} ${arrow()}</a></article>`).join("")}</div>`);
-
-  const request = sec("request", "plane", "right", t.rq_eb, t.h_rq, `
-<p class="lead rv">${esc(t.rq_p)}</p>
-<p class="badge rv"><span class="rec"></span>${esc(D.bonus[lang])}</p>
-<form class="form rv" id="form" novalidate>
-<p class="extra" id="extra" hidden></p>
-<label class="fl"><span class="mono">${esc(t.f_name)}</span><input id="f-name" name="name" autocomplete="name" required></label><p class="err" id="e-name" hidden></p>
-<label class="fl"><span class="mono">${esc(t.f_phone)}</span><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required></label><p class="err" id="e-phone" hidden></p>
-<label class="fl"><span class="mono">${esc(t.f_email)}</span><input id="f-email" name="email" type="email" autocomplete="email" dir="ltr" required></label><p class="err" id="e-email" hidden></p>
-<label class="fl"><span class="mono">${esc(t.f_format)}</span><select id="f-format" name="format"><option value="">${esc(t.f_none)}</option>${t.fm.map((x, i) => `<option value="${i}">${esc(x[0])}</option>`).join("")}</select></label>
-<input class="hp" id="f-web" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-<button class="btn btn-acc btn-wide" type="submit"><span>${esc(t.f_btn)}</span> ${arrow()}</button>
-<p class="err" id="send-err" hidden></p>
-<p class="note">${esc(t.privacy)}</p>
-</form>
-<div class="sent" id="done" hidden><h3 id="done-h" tabindex="-1">${esc(t.done_h)}</h3><p id="done-msg"></p><button class="btn btn-line" type="button" id="again">${esc(t.again)}</button></div>`, `
-<p class="mono tr-eb rv">${esc(t.nx_h)}</p>
-<ol class="grid3 next">${t.nx.map((x, i) => `<li class="card rv"><span class="mono">${String(i + 1).padStart(2, "0")}</span><b>${esc(x)}</b></li>`).join("")}</ol>`);
-
-  const faq = sec("faq", "question", "left", t.faq_eb, t.h_faq, `
-<div class="faq">${t.faq.map((x, i) => `<details class="rv"${i ? "" : " open"}><summary><span>${esc(x[0])}</span><i aria-hidden="true">+</i></summary><p>${esc(x[1])}</p></details>`).join("")}</div>`);
-
-  const links = [
-    [t.ct[0], "tel:" + c.phone.replace(/\s/g, ""), c.phone],
-    [t.ct[1], c.telegram[lang], "@" + c.telegram[lang].split("/").pop()],
-    [t.ct[2], c.instagram[lang], "@" + c.instagram[lang].split("/").filter(Boolean).pop()],
-    [t.ct[4], c.youtube, "@" + c.youtube.split("@").pop()]
-  ];
-  const contact = sec("contact", "wordmark", "center", t.ct_eb, t.h_ct, `
-<ul class="links rv">${links.map(l => `<li><span class="mono">${esc(l[0])}</span><a href="${esc(l[1])}"${/^http/.test(l[1]) ? ' target="_blank" rel="noopener"' : ""} dir="ltr">${esc(l[2])}</a></li>`).join("")}</ul>
-<footer class="foot rv"><span>© 2026 AB Media</span><span>${esc(t.foot)}</span></footer>`);
-
-  return hero + diff + calcS + prob + fix + how + work + why + formats + faq + request + contact;
-}
 
 /* ---------- render ---------- */
 function render() {
-  const keep = {}; $$("#form input, #form select").forEach(i => keep[i.id] = i.value);
-  t = Object.assign({}, I.L[lang], V[lang]);
-  document.documentElement.lang = lang; document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
-  document.title = "AB Media — " + t.hero_tag;
-  $('meta[name="description"]').content = t.foot;
-  $("#app").innerHTML = page();
-  /* numbers follow the order on the page, whatever order the sections were built in */
-  $$(".s .eb span:first-child").forEach((e, i) => { e.textContent = String(i + 1).padStart(2, "0"); });
-  Object.keys(keep).forEach(id => { const i = $("#" + id); if (i) i.value = keep[id]; });
-  if (fmt !== "") $("#f-format").value = fmt;
-
-  const href = ["#work", "#how", "#formats", "#faq"];
-  $("#nav").innerHTML = t.nav3.map((x, i) => `<a href="${href[i]}">${esc(x)}</a>`).join("");
+  const pg = P.make(lang, ROOT); t = pg.t;
+  if (!$("#app").children.length) $("#app").innerHTML = pg.html;
+  if (!$("#nav").children.length) $("#nav").innerHTML = pg.nav;
+  if (!$("#langs").children.length) $("#langs").innerHTML = P.langs(lang, ROOT, "");
   $("#top-cta").textContent = t.cta; $("#float-cta").textContent = t.cta; $("#pl-cta").textContent = t.cta;
+  $("#pl-more").textContent = t.open_case;
   $("#pl-x").setAttribute("aria-label", t.close);
   $("#langs").setAttribute("aria-label", t.lang_l);
-  $("#langs").innerHTML = I.LANGS.map(l => `<button type="button" data-lang="${l}" aria-pressed="${l === lang}">${l.toUpperCase()}</button>`).join("");
-  $("#bar-t").innerHTML = `${esc(t.bar.replace("5", String(D.offer_minutes)))} <b>${esc(D.bonus[lang])}</b>`;
-
+  $("#bar-t").innerHTML = pg.bar;
   rail(); reveal(); bindCalc(); bindForm(); extra(); onScroll();
 }
 
@@ -191,7 +68,7 @@ function onScroll() {
   $("#prog").style.transform = `scaleX(${max > 0 ? Math.min(scrollY / max, 1) : 0})`;
   $("#top").classList.toggle("stuck", scrollY > 20);
   /* floating button (phones): only while no other request button or the form is on screen */
-  const seen = $$("#app .btn-acc, #form").some(b => { const r = b.getBoundingClientRect(); return r.bottom > 0 && r.top < vh; });
+  const seen = $$("#app .btn-acc, #form, #contact .links").some(b => { const r = b.getBoundingClientRect(); return r.bottom > 0 && r.top < vh; });
   $("#float-cta").hidden = seen || scrollY < vh * .7;
 }
 addEventListener("scroll", () => { if (!tick) { tick = true; requestAnimationFrame(onScroll); } }, { passive: true });
@@ -261,7 +138,8 @@ function bindForm() {
 const player = $("#player"), video = $("#pl-video");
 function play(client) {
   const c = CASE[client]; if (!c) return;
-  video.poster = `media/${c.video}.jpg`; video.src = `media/${small() ? "m/" : ""}${c.video}.mp4`;
+  video.poster = `${ROOT}media/${c.video}.jpg`; video.src = `${ROOT}media/${small() ? "m/" : ""}${c.video}.mp4`;
+  $("#pl-more").href = `work/${c.video}/`;
   $("#pl-cat").textContent = `${t.cat[client]} · ${c.dur}`; $("#pl-title").textContent = client;
   const tx = c.t[lang] || c.t.en;
   $("#pl-dl").innerHTML = `<dt class="mono">${esc(t.l_task)}</dt><dd>${esc(tx[0])}</dd><dt class="mono">${esc(t.l_concept)}</dt><dd>${esc(tx[1])}</dd>`;
@@ -273,8 +151,10 @@ player.addEventListener("click", e => { if (e.target === player) player.close();
 $("#pl-x").addEventListener("click", () => player.close());
 $("#pl-cta").addEventListener("click", () => player.close());
 document.addEventListener("click", e => {
-  const l = e.target.closest("[data-lang]"); if (l) { lang = l.dataset.lang; store.set("abm-lang", lang); active = -1; render(); return; }
-  const p = e.target.closest("[data-play]"); if (p) return play(p.dataset.play);
+  /* the language links are real links; the choice is kept so the home page does not send the visitor back */
+  const l = e.target.closest("[data-lang]"); if (l) { store.set("abm-lang", l.dataset.lang); return; }
+  /* a film link opens the player here; with a modifier key or without scripts it opens the film's page */
+  const p = e.target.closest("[data-play]"); if (p && !(e.ctrlKey || e.metaKey || e.shiftKey)) { e.preventDefault(); return play(p.dataset.play); }
   const f = e.target.closest("[data-format]"); if (f) { fmt = f.dataset.format; $("#f-format").value = fmt; }
 });
 
@@ -295,7 +175,7 @@ document.addEventListener("click", e => {
 /* ---------- start ---------- */
 render();
 /* the logo shapes are drawn with Unbounded, so the particles wait for that font (2 s at most) */
-const face = window.FontFace ? new FontFace("Unbounded", 'url("static/fonts/unbounded-latin.woff2")', { weight: "200 900" }).load().then(f => document.fonts.add(f)) : Promise.resolve();
+const face = window.FontFace ? new FontFace("Unbounded", 'url("' + ROOT + 'static/fonts/unbounded-latin.woff2")', { weight: "200 900" }).load().then(f => document.fonts.add(f)) : Promise.resolve();
 Promise.race([face, new Promise(r => setTimeout(r, 2000))]).catch(() => {}).then(() => {
   try { particles = window.ABM_Particles($("#stage")); } catch (e) { particles = null; }
   window.ABM_P = particles;
